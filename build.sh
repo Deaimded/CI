@@ -44,7 +44,7 @@ MODEL="Redmi Note 9 Pro"
 DEVICE="joyeuse"
 
 # Version
-V="R"
+V="RS"
 
 # The defconfig which should be used. Get it from config.gz from
 # your device or check source
