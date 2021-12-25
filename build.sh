@@ -134,7 +134,7 @@ DATE=$(TZ=Asia/Jakarta date +"%F_%H-%M-%S")
 	TC_DIR=$KERNEL_DIR/clang
 
 	msg "|| Cloning Anykernel ||"
-	git clone --depth 1 --no-single-branch https://github.com/AnggaR96s/AnyKernel3.git -b master
+	git clone --depth 1 --no-single-branch https://github.com/AnggaR96s/AnyKernel3.git -b S
 }
 
 ##------------------------------------------------------##
@@ -248,6 +248,9 @@ build_kernel() {
 ##--------------------------------------------------------------##
 
 gen_zip() {
+        msg "|| Generating Changelog ||"
+        echo -e "ChangeLog:\n" >> AnyKernel3/changelog
+        git log --oneline -n 5 >> AnyKernel3/changelog
 	msg "|| Zipping into a flashable zip ||"
 	mv "$KERNEL_DIR"/out/arch/arm64/boot/Image.gz-dtb AnyKernel3/Image.gz-dtb
 	if [ $BUILD_DTBO = 1 ]
