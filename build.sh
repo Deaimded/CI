@@ -129,7 +129,7 @@ DATE=$(TZ=Asia/Jakarta date +"%F_%H-%M-%S")
  clone() {
 	echo " "
 	msg "|| Cloning Clang ||"
-	git clone --depth 1 --no-single-branch https://gitlab.com/AnggaR96s/clang-gengkapak clang
+	git clone --depth 1 --no-single-branch https://gitlab.com/AnggaR96s/clang-gengkapak -b backup clang
 		# Toolchain Directory defaults to clang-llvm
 	TC_DIR=$KERNEL_DIR/clang
 
