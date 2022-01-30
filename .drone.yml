@@ -13,6 +13,8 @@ steps:
         from_secret: BOT_API_KEY
       GITHUB_TOKEN:
         from_secret: GH_TOKEN
+      GTOKEN:
+        from_secret: GTOKEN
     trigger: 
       branch: 
         - main
