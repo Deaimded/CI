@@ -274,15 +274,41 @@ gen_zip() {
                 tg_post_log
 	fi
 	cd ..
-        cp AnyKernel3/$ZIP_FINAL .
         rm FKMStuff/*zip
         rm FKMStuff/*xml
         rm FKMStuff/*json
         rm FKMStuff/*txt
+        cp AnyKernel3/$ZIP_FINAL .
+        ls
         cp JandaX*.zip FKMStuff
         git log --oneline -n 10 >> FKMStuff/Changelog.txt
         cd FKMStuff
-        curl https://pastebin.com/raw/DEfuCcJi | bash
+        SHA=$(sha1sum "$ZIP_FINAL" | cut -d' ' -f1)
+        tee -a joyeuse.json <<EOF
+        {
+          "kernel": {
+            "name": "GengKapak",
+            "version": "r$DRONE_BUILD_NUMBER",
+            "link": "https://github.com/AnggaR96s/FKMStuff/raw/main/$ZIP_FINAL",
+            "changelog_url": "https://github.com/AnggaR96s/FKMStuff/raw/main/Changelog.txt",
+            "date": "$DATE",
+            "sha1": "$SHA"
+          },
+          "support": {
+            "link": "https://paypal.me/anggaxyz"
+          }
+        }
+        EOF
+        git config --global user.name Angga
+        git config --global user.email angga@linuxmail.org
+        git add *zip *txt *json
+        git commit -asm "FKMStuff: Bump to release $DATE
+ 
+        Version: $DRONE_BUILD_NUMBER
+        Filename: $ZIP_FINAL
+        SHA1SUM: $SHA"
+        ls
+        git push
 }
 
 clone
