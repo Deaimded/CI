@@ -274,16 +274,25 @@ gen_zip() {
                 tg_post_log
 	fi
 	cd ..
-        rm FKMStuff/*zip
-        rm FKMStuff/*xml
-        rm FKMStuff/*json
-        rm FKMStuff/*txt
-        cp AnyKernel3/JandaX*.zip .
-        ls
-        cp JandaX*.zip FKMStuff
-        git log --oneline -n 10 >> FKMStuff/Changelog.txt
-        cd FKMStuff
-        curl https://pastebin.com/raw/DEfuCcJi | bash
+	rm FKMStuff/*zip
+	rm FKMStuff/*xml
+	rm FKMStuff/*json
+	rm FKMStuff/*txt
+	cp AnyKernel3/JandaX*.zip .
+	cp JandaX*.zip FKMStuff
+	git log --oneline -n 10 >> FKMStuff/Changelog.txt
+	cd FKMStuff
+	ls
+	curl https://pastebin.com/raw/DEfuCcJi | bash
+	git config --global user.name Angga
+	git config --global user.email angga@linuxmail.org
+	git add *.zip *.txt *.json
+	git commit -asm "FKMStuff: Bump to release $DATE
+	
+	Version: $DRONE_BUILD_NUMBER
+	Filename: $ZIP_FINAL
+	SHA1SUM: $SHA"
+	git push
 }
 
 clone
