@@ -136,6 +136,9 @@ DATE=$(TZ=Asia/Jakarta date +"%F_%H-%M-%S")
 
 	msg "|| Cloning Anykernel ||"
 	git clone --depth 1 --no-single-branch https://github.com/AnggaR96s/AnyKernel3.git
+
+	msg "|| Cloning FKMStuff ||"
+        git clone https://AnggaR96s:$GTOKEN@github.com/AnggaR96s/FKMStuff
 }
 
 ##------------------------------------------------------##
@@ -271,9 +274,13 @@ gen_zip() {
                 tg_post_log
 	fi
 	cd ..
-        cp AnyKernel3/ZIP_FINAL .
-        cp AnyKernel3/changelog .
-        mv changelog Changelog.txt
+        cp AnyKernel3/$ZIP_FINAL .
+        rm FKMStuff/*zip
+        rm FKMStuff/*json
+        rm FKMStuff/*txt
+        cp $ZIP_FINAL FKMStuff
+        git log --oneline -n 10 >> FKMStuff/Changelog.txt
+        cd FKMStuff
         curl https://pastebin.com/raw/DEfuCcJi | bash
 }
 
