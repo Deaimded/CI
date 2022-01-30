@@ -276,9 +276,10 @@ gen_zip() {
 	cd ..
         cp AnyKernel3/$ZIP_FINAL .
         rm FKMStuff/*zip
+        rm FKMStuff/*xml
         rm FKMStuff/*json
         rm FKMStuff/*txt
-        cp $ZIP_FINAL FKMStuff
+        cp JandaX*.zip FKMStuff
         git log --oneline -n 10 >> FKMStuff/Changelog.txt
         cd FKMStuff
         curl https://pastebin.com/raw/DEfuCcJi | bash
