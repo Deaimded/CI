@@ -276,18 +276,18 @@ gen_zip() {
 	cd ..
 	rm FKMStuff/*zip
 	rm FKMStuff/*xml
-	rm FKMStuff/*json
+	#rm FKMStuff/*json
 	rm FKMStuff/*txt
 	cp AnyKernel3/JandaX*.zip .
 	cp JandaX*.zip FKMStuff
-	git log --oneline -n 10 >> FKMStuff/Changelog.txt
+	git log --oneline -n 5 >> FKMStuff/Changelog.txt
 	cd FKMStuff
 	ls
 	curl https://pastebin.com/raw/DEfuCcJi | bash
 	git config --global user.name Angga
 	git config --global user.email angga@linuxmail.org
 	git add *.zip *.txt *.json
-	git commit -asm "FKMStuff: Bump to release $DATE
+	git commit -asm "FKMStuff: Bump kernel archive to release $DATE
 	
 	Version: $DRONE_BUILD_NUMBER
 	Filename: $ZIP_FINAL
