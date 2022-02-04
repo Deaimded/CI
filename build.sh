@@ -276,7 +276,6 @@ gen_zip() {
 	cd ..
 	rm FKMStuff/*zip
 	rm FKMStuff/*xml
-	#rm FKMStuff/*json
 	rm FKMStuff/*txt
 	cp AnyKernel3/JandaX*.zip .
 	cp JandaX*.zip FKMStuff
@@ -286,7 +285,7 @@ gen_zip() {
 	curl https://pastebin.com/raw/DEfuCcJi | bash
 	git config --global user.name Angga
 	git config --global user.email angga@linuxmail.org
-	git add *.zip *.txt *.json
+	git add *.zip *.txt
 	git commit -asm "FKMStuff: Bump kernel archive to release $DATE
 	
 	Version: $DRONE_BUILD_NUMBER
