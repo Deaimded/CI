@@ -282,7 +282,7 @@ gen_zip() {
 	git log --oneline -n 5 >> FKMStuff/Changelog.txt
 	cd FKMStuff
 	ls
-	curl https://pastebin.com/raw/DEfuCcJi | bash
+	# curl https://pastebin.com/raw/DEfuCcJi | bash
 	git config --global user.name Angga
 	git config --global user.email angga@linuxmail.org
 	git add *.zip *.txt
