@@ -130,7 +130,7 @@ DATE=$(TZ=Asia/Jakarta date +"%F_%H-%M-%S")
  clone() {
 	echo " "
 	msg "|| Cloning Clang ||"
-	git clone --depth 1 https://scm.osdn.net/gitroot/gengkapak/clang-GengKapak.git -b main clang
+	git clone --depth 1 https://scm.osdn.net/gitroot/gengkapak/clang-GengKapak-16.git -b main clang
 		# Toolchain Directory defaults to clang-llvm
 	TC_DIR=$KERNEL_DIR/clang
 
