@@ -3,8 +3,6 @@ env:
   REPO : "ENCRYPTED[84c0e0bb84e0b187aeabb1386a1c97536d9adbb3d9b247c2fb931a392da80ad061a85a586743b933d129a4d189b51a0c]"
   token: "ENCRYPTED[1b323bf018968ae10f60e1536033d823535461b2d8c343d44e39da638cc0e3648dfd965d719ca1b51e83aeff99731193]"
   CREDENTIALS: "ENCRYPTED[7ff53691fc834c0b7df54ec6ea6c544119cd197b5877f88470d92081e47e170fab8cdf1a4ce3d4581f449e13f28d5f87]"
-
-# FLAG
   WORKDIR: "/tmp"
   CIRRUS_CLONE_DEPTH: "1"
   
@@ -16,6 +14,4 @@ env:
     image: gengkapak/build:latest
     cpu: 8
     memory: 32G
-
-  COMPILE:
-     - curl https://raw.githubusercontent.com/Deaimded/CI/main/run.sh | sh
+  COMPILE: curl https://raw.githubusercontent.com/Deaimded/CI/main/run.sh | bash
