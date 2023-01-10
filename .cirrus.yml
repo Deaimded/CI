@@ -6,7 +6,7 @@ env:
   WORKDIR: "/tmp"
   CIRRUS_CLONE_DEPTH: "1"
   
-  task:
+task:
   name: "Setting Up, Syncing, Building and Uploading"
   only_if: $CIRRUS_REPO_OWNER == 'Deaimded'
   timeout_in: 2h
